@@ -100,7 +100,7 @@ module Asterisk
         # for reponses that contain eventlist of values set it to 
         # internal attributes
         def set_eventlist
-          return unless @attribute['eventlist'].to_s.downcase.eql? 'start'
+          return unless @attribute['eventlist'].to_s.downcase.eql? 'start' or @attribute['message'].to_s.eql? 'Queue status will follow'
           @nodes.each do |node|
             next if node['eventlist'].eql? 'Complete'
             @list << node.attributes.to_h
